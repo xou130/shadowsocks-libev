@@ -25,9 +25,9 @@
 #define MAX_PORT_NUM 1024
 #define MAX_REMOTE_NUM 10
 #define MAX_DSCP_NUM 64
-#define MAX_CONF_SIZE 128 * 1024
+#define MAX_CONF_SIZE (128 * 1024)
 #define MAX_CONNECT_TIMEOUT 10
-#define MAX_REQUEST_TIMEOUT 60
+#define MIN_TCP_IDLE_TIMEOUT (24 * 3600)
 #define MIN_UDP_TIMEOUT 10
 
 #define DSCP_EF      0x2E
@@ -60,6 +60,8 @@ typedef struct {
     ss_port_password_t port_password[MAX_PORT_NUM];
     char *remote_port;
     char *local_addr;
+    char *local_addr_v4;
+    char *local_addr_v6;
     char *local_port;
     char *password;
     char *key;
